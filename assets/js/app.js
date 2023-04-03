@@ -8,13 +8,14 @@ const closeRgs = document.querySelector(".close-rgs");
 const closeLgn = document.querySelector(".close-lgn");
 const link = document.querySelector(".link")[0];
 const modal = document.querySelector(".registration-login-forms");
+const links = document.querySelectorAll(".link");
 
-
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    registerForm.style.display = "none";
+    loginForm.style.display = "none";
   }
-}
+};
 
 // Hamburger
 hamburger.addEventListener("click", () => {
@@ -22,14 +23,12 @@ hamburger.addEventListener("click", () => {
   actionItems.classList.toggle("active");
 });
 
-
-document.querySelectorAll(".link").forEach(n => n.addEventListener("click", () => {
-  hamburger.classList.remove("active");
-  actionItems.classList.remove("active");
-}));
-
-
-
+links.forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    actionItems.classList.remove("active");
+  })
+);
 
 // clicking on registration and loggin buttons show forms
 
@@ -43,7 +42,6 @@ loginBtn.addEventListener("click", () => {
   registerForm.style.display = "none";
 });
 
-
 // Disappear forms when the close button is pressed
 closeRgs.addEventListener("click", () => {
   registerForm.style.display = "none";
@@ -52,4 +50,3 @@ closeRgs.addEventListener("click", () => {
 closeLgn.addEventListener("click", () => {
   loginForm.style.display = "none";
 });
-
